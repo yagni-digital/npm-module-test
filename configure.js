@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const styleSheetRegex = /(<link .*href="path\/to\/stylesheet".*\/>)/i
+const styleSheetRegex = /(<link .*href="\/public\/stylesheets\/hmrc-frontend\.css".*\/>)/im
 const UTILS = require('./utils')
 const parentPackageRoot = UTILS.getParentPackageRoot(process.env.INIT_CWD)
 
