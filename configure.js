@@ -4,15 +4,20 @@ const styleSheetRegex = /(<link .*href="\/public\/stylesheets\/hmrc-frontend\.cs
 const UTILS = require('./utils')
 const parentPackageRoot = UTILS.getParentPackageRoot(process.env.INIT_CWD)
 
-fs.copyFileSync(
+console.log('copy:', [
   path.join(__dirname, 'public', 'stylesheets', 'hmrc-frontend.css'),
   path.join(parentPackageRoot, 'public', 'stylesheets', 'hmrc-frontend.css')
-)
-
-fs.copyFileSync(
-  path.join(__dirname, 'public', 'javascripts', 'hmrc-frontend.js'),
-  path.join(parentPackageRoot, 'public', 'javascripts', 'hmrc-frontend.js')
-)
+].join(' -> '))
+//
+// fs.copyFileSync(
+//   path.join(__dirname, 'public', 'stylesheets', 'hmrc-frontend.css'),
+//   path.join(parentPackageRoot, 'public', 'stylesheets', 'hmrc-frontend.css')
+// )
+//
+// fs.copyFileSync(
+//   path.join(__dirname, 'public', 'javascripts', 'hmrc-frontend.js'),
+//   path.join(parentPackageRoot, 'public', 'javascripts', 'hmrc-frontend.js')
+// )
 
 var headHTMLFragment = fs.readFileSync(path.join(parentPackageRoot, 'app', 'views', 'includes', 'head.html')).toString()
 if (headHTMLFragment.match(styleSheetRegex)) {
