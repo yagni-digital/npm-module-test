@@ -38,7 +38,7 @@ function retreiveBuiltFile(partialUrlParts, partialFilePathParts) {
 
 Promise.all([
   retreiveBuiltFile(['stylesheets', 'application.min.css'], ['public', 'stylesheets', 'hmrc-frontend.css']),
-  retreiveBuiltFile(['javascripts', 'application.min.js'], ['public', 'javascripts', 'hmrc-frontend.js'])
+  retreiveBuiltFile(['javascripts', 'application.min.js'], ['app', 'assets', 'javascripts', 'hmrc-frontend.js'])
 ])
   .then(_ => {
     var headHTMLFragment = fs.readFileSync(path.join(parentPackageRoot, 'app', 'views', 'includes', 'head.html')).toString()
